@@ -39,11 +39,11 @@ local function startTeleporting()
         if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
             local hrp = closestPlayer.Character.HumanoidRootPart
             local lookDirection = hrp.CFrame.LookVector
-            local behindPosition = hrp.Position - lookDirection * 3 -- 3스터드 뒤
+            local behindPosition = hrp.Position - lookDirection * 1 -- 3스터드 뒤
 
             if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
                 -- Look in the same direction as the target player
-                local newCFrame = CFrame.new(behindPosition + Vector3.new(0, 2, 0), hrp.Position + lookDirection * 5)
+                local newCFrame = CFrame.new(behindPosition + Vector3.new(0, 0.95, 0), hrp.Position + lookDirection * 5)
                 player.Character.HumanoidRootPart.CFrame = newCFrame
             end
         end
@@ -56,7 +56,7 @@ end
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
-    if input.KeyCode == Enum.KeyCode.X then
+    if input.KeyCode == Enum.KeyCode.J then
         if teleporting then
             stopTeleporting()
         else
@@ -67,6 +67,6 @@ end)
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Flame", 
-    Text = "TpFollow Loaded! // X to toggle", 
+    Text = "TpFollow Loaded! // K to toggle", 
     Duration = 2,
 })
