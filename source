@@ -56,7 +56,7 @@ end
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
-    if input.KeyCode == Enum.KeyCode.J then
+    if input.KeyCode == Enum.KeyCode.X then
         if teleporting then
             stopTeleporting()
         else
@@ -67,6 +67,6 @@ end)
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Flame", 
-    Text = "TpFollow Loaded! // K to toggle", 
+    Text = "TpFollow Loaded! // X to toggle", 
     Duration = 2,
 })
